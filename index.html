@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Am I Clicking?</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="description" content="Check if my mouse (or touchscreen) is actually clicking properly, like skipping a click or releasing too early." />
+	<meta name="og:title" property="og:title" content="Click-Check for your mouse or touchscreen" />
+	<meta name="og:type" property="og:type" content="website" />
+	<meta name="keywords" content="mouse,mouse-check,click,clicking,mouse-click" />
+	<meta name="author" content="Kai Boenke" />
+	<meta name="generator" content="Sublime Text" />
+	<meta name="robots" content="index,nofollow" />
+	<style>
+		:root { --darkColor: #333333; --lightColor: #eeeeee; --textColor: #666666; --clickColor: #939B00; }
+		html, body { margin: 0; height: 100%; background-color: var(--lightColor); }
+		@media (prefers-color-scheme: dark) { body { background-color: var(--darkColor); } }
+		body.click { background-color: var(--clickColor); }
+		main {
+			width: 100%; height: 100%; margin-bottom: -25px;
+			display: flex; justify-content: center; flex-direction: column;
+			text-align: center;
+			color: var(--textColor); font-family: sans-serif; font-size: 2em;
+		}
+		footer {
+			height: 20px;
+			background-image: url("Three14.png");
+			background-repeat: no-repeat;
+			background-position: center right 5px;
+		}
+	</style>
+	<script>
+		function getText(){
+			var _en = ["Am I clicking?", "I am clicking!", "I was clicking."];
+			var _de = ["Klicke ich?", "Ich klicke!", "Ich habe geklickt."];
+			var _es = ["&iquest;Estoy haciendo clic?", "&iexcl;Estoy haciendo clic!", "Estaba haciendo clic."]
+			switch(window.navigator.language.substring(0,2)){
+				case "de": return _de;
+				case "es": return _es;
+				default: return _en;
+			}
+		}
+		function setText(clicking){
+			_lang = getText();
+			document.getElementsByTagName("MAIN")[0].innerHTML = (clicking === true) ? _lang[1] : _lang[2];
+		}
+		function clicking(){ document.getElementsByTagName("BODY")[0].className = 'click'; setText(true); }
+		function released(){ document.getElementsByTagName("BODY")[0].className = ''; setText(false); }
+		function initMain(){ document.getElementsByTagName("MAIN")[0].innerHTML = getText()[0]; }
+	</script>
+</head>
+<body onLoad="initMain();" onMouseDown="clicking();" onMouseUp="released();">
+	<main></main>
+	<footer onClick="window.open('http://three14.us');"></footer>
+</body>
+</html>

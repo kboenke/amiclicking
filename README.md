@@ -1,2 +1,3 @@
-# amiclicking
-Webpage to check if clicks are registered properly.
+# Am I clicking?
+
+A webpage to check if clicks are registered properly.
