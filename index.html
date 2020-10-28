@@ -48,7 +48,7 @@
 		function initMain(){ document.getElementsByTagName("MAIN")[0].innerHTML = getText()[0]; }
 	</script>
 </head>
-<body onLoad="initMain();" onMouseDown="clicking();" onMouseUp="released();">
+<body onLoad="initMain();" onMouseDown="clicking();" onMouseUp="released();" onTouchStart="clicking();" onTouchEnd="released();">
 	<main></main>
 	<footer onClick="window.open('http://three14.us');"></footer>
 </body>
