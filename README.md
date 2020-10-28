@@ -1,3 +1,4 @@
 # Am I clicking?
 
-A webpage to check if clicks are registered properly.
+A [webpage](http://amiclicking.xyz) to check if clicks are registered properly.
+Supports touch-screens as well!
